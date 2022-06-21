@@ -1,0 +1,21 @@
+@import "./core/color";
+@import "./core/default";
+@import "./core/variable";
+@import "./core/reset";
+@import "./core/prefixcls";
+@import "./mixins/index";
+@import "./core/prefixcls";
+@import "./core/animation";
+
+
+
+// icon
+@import "../packages/icon/style/index";
+// breadcrumb
+@import "../packages/breadcrunmb/style/index";
+// dropdown
+@import "../packages/dorpdown/style/index";
+// pagination
+@import "../packages/pagination/styles/index";
+// steps
+@import "../packages/stpes/styles/index";

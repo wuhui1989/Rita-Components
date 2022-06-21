@@ -1,0 +1,108 @@
+.pdfBox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  // width: 1298px;
+  margin-left:30px;
+  margin-top : 10px;
+}
+
+.leftBox {
+  width: 215px;
+  // overflow: hidden;
+  position: relative;
+  left:-4px;
+  .windowBox {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    position: relative;
+    margin: 0px 5px 0px 5px;
+    .pageWindow {
+      position: relative;
+      //   height: 140px;
+      overflow: hidden;
+      .react-pdf__Page__canvas {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(50%, 50%) !important;
+      }
+    }
+    &:hover {
+        cursor: pointer;
+      }
+  }
+
+  .isView {
+    border: 3px solid rgb(64, 121, 247);
+  }
+}
+.pageSpan{
+    display: block;
+    font-size: 8px;
+    color:#333;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+}
+.pageIcon{
+  z-index: 10000;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.rightBox {
+  // width: 1078px;
+  height: 435px;
+  overflow-y: scroll;
+  display: flex;
+  //   align-items: center;
+  justify-content: center;
+}
+
+
+.centerIcomTop{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .middleIcon{
+    width: 20px;
+    height: 20px;
+    background-size: 40px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('@/assets/training/pdftopPage.svg');
+    &:hover{
+      background-image: url('@/assets/training/pdftopPageActive.svg');
+      cursor: pointer;
+    }
+  }
+}
+
+.centerIcomBottom{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom:-7px;
+  .middleIcon{
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40px 20px;
+    background-image: url('@/assets/training/pdfBottomPage.svg');
+    &:hover{
+      cursor: pointer;
+      background-image: url('@/assets/training/pdfBottomPageActive.svg');
+    }
+  }
+}
+
+.loadingIcon{
+  width: 60px;
+  height: 60px;
+}

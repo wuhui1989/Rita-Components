@@ -1,21 +1,15 @@
-
-
 ## Rita Components of React
-
 
 ### ✨ 特性：
 
-- 📦 开箱即用的 React 组件。
-- 🔒 基于 typescript 开发，提供完整的类型定义文件。
-- 🎪 提炼自企业级产品的交互语言和设计风格。
-- ⚡ 小巧而精干的设计体系。
+-  基于Antd desgin 二次开发组件，React 框架可开箱即用，满足业务需要不断丰富。
+-  基于 typescript 开发，提供完整的类型定义文件。
+-  提炼自企业级产品的交互语言和设计风格。
 
 
-🚀 启动更快：采用 vite 替换 webpack cli，项目启动速度提升十倍。
-
-🚀 打包更快：采用 rollup 打包，打包速度更快，出产体积更小。
-
-🚀 依赖安装快更：采用 pnpm 替换 npm 进行包管理，依赖安装速度更快。
+🚀 启动更快：采用 vite 冷启动更快。
+🚀 打包更快：采用 rollup 打包，tree shark更好支持，模块导入导出，打包速度更快，出产体积更小。
+🚀 依赖安装快更：采用 pnp 进行包管理，依赖安装速度更快。
 
 ### 安装
 
@@ -26,9 +20,9 @@
 #### 示例
 
 ```javascript
-import { KDivider } from "rita-components"
+import { VideoLearnerExample } from "rita-components"
 
-ReactDOM.render(<KDivider />, mountNode)
+ReactDOM.render(<VideoLearnerExample />, mountNode)
 ```
 
 ##### 引入样式文件
@@ -36,7 +30,3 @@ ReactDOM.render(<KDivider />, mountNode)
 ```javasctipt
 import 'rita-components/dist/index.css'
 ```
-
-### 按需加载
-
-默认支持 `tree shaking`
