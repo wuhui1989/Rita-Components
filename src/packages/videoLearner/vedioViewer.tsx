@@ -1,4 +1,3 @@
-import { Prograss } from './index';
 import React, { FC } from 'react';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
@@ -6,7 +5,7 @@ import 'video.js/dist/video-js.css';
 interface IProps {
   options: any;
   onReady: (play: any) => void;
-  readFinshCallBack: (type: Prograss) => void;
+  readFinshCallBack: (type: string) => void;
 
 }
 
@@ -25,14 +24,15 @@ export const VedioViewer: FC<IProps> = props => {
       true,
     );
 
-    videoRef.current?.addEventListener(
-      'pause',
-      e => {
-        e.stopImmediatePropagation();
-        var myPlayer = videojs('learn-vedio-dom');
-      },
-      true,
-    );
+    // videoRef.current?.addEventListener(
+    //   'pause',
+    //   e => {
+    //     e.stopImmediatePropagation();
+    //     // var myPlayer = videojs('learn-vedio-dom');
+    //     // myPlayer.bigPlayButton.show();
+    //   },
+    //   true,
+    // );
 
     // make sure Video.js player is only initialized once
     if (!playerRef.current) {

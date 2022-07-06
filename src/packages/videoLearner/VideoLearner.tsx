@@ -12,14 +12,14 @@ export type Prograss =
   | 'questionDone'
   | 'questionOpen';
 
-interface IProps {
+export interface VideoLearnIProps {
   width: number;
   documentUrl: string;
   height: number;
   FinshCallBack?: (type: Prograss) => void;
 }
 
-const VideoLearner: FC<IProps> = props => {
+const VideoLearner: FC<VideoLearnIProps> = props => {
   const {  documentUrl, width, height } = props;
   const videoRef = React.useRef(null);
   const readFinshCallBack = (progress: Prograss) => {
@@ -51,16 +51,32 @@ const VideoLearner: FC<IProps> = props => {
             //  poster: videoInfo.img, // 你的封面地址
             width: width - 48,
             notSupportedMessage: '此视频暂无法播放，请稍后再试', // 允许覆盖Video.js无法播放媒体源时显示的默认信息。
-            // controlBar: {
-            //   timeDivider: true,
-            //   durationDisplay: true,
-            //   remainingTimeDisplay: true,
-            //   fullscreenToggle: true, // 全屏按钮
-            // },
+            controlBar: {
+              timeDivider: true,
+              bigPlayButton:true,
+              bigPlayButtonCentered:true,
+              durationDisplay: true,
+              remainingTimeDisplay: true,
+              fullscreenToggle: true, // 全屏按钮
+              children: [
+                {name: 'playToggle'}, 
+              ]
+            },
           }}
           onReady={(play: any) => {
             videoRef.current = play;
             play.play();
+            // play.addEventListener(
+            //   'pause',
+            //   e => {
+            //     debugger;
+            //     e.stopImmediatePropagation();
+            //     // var myPlayer = videojs('learn-vedio-dom');
+            //     // myPlayer.bigPlayButton.show();
+            //   },
+            //   true,
+            // );
+
           }}
         />
       )}
