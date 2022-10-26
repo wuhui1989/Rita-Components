@@ -1,0 +1,192 @@
+// size
+@mixin step-size($margin, $width-height, $font-size, $padding, $dot-size) {
+  .#{$step-prefix-cls} {
+    &-tag {
+      margin: 0 $step-margin-s;
+      transition: 0.25s all ease-in-out;
+
+      &-inner {
+        transition: 0.25s all ease-in-out;
+        width: $width-height;
+        height: $width-height;
+        line-height: $width-height;
+        padding: calc($margin / 4);
+        size: $font-size;
+      }
+    }
+    &-title {
+      transition: 0.25s all ease-in-out;
+      font-size: $font-size;
+    }
+    &-subtitle {
+      transition: 0.25s all ease-in-out;
+      margin-left: $padding;
+    }
+    &-dot {
+      padding: 0 $margin;
+      transition: 0.25s all ease-in-out;
+
+      &-inner {
+        transition: 0.25s all ease-in-out;
+
+        border-width: $dot-size;
+
+        &-finished {
+          border-width: $dot-size;
+        }
+      }
+    }
+  }
+}
+
+// direction
+@mixin step-direction(
+  $flex-direction,
+  $flex-size,
+  $align-items,
+  $padding,
+  $height,
+  $dot-direction
+) {
+  flex-direction: $flex-direction;
+  .#{$step-prefix-cls} {
+    &-dot {
+      flex: $flex-size;
+      align-items: $align-items;
+      padding: $padding;
+      height: $height;
+
+      &-inner {
+        @if $dot-direction == horizontal {
+          border-bottom-color: $step-undo-color;
+          border-bottom-style: solid;
+          &-finised {
+            border-bottom-style: solid $step-current-color;
+            border-bottom-color: $step-current-color;
+          }
+        }
+        @if $dot-direction == vertical {
+          border-left-color: $step-undo-color;
+          border-left-style: solid;
+          &-finised {
+            border-left-style: solid $step-current-color;
+            border-left-color: $step-current-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+// status
+
+@mixin step-status(
+  $color,
+  $current-color,
+  $current-bg,
+  $base-color,
+  $secondary-color
+) {
+  .#{$step-prefix-cls} {
+    &-tag {
+      &-inner {
+        border: 1px solid $color;
+        color: $color;
+      }
+    }
+    &-title {
+      color: $color;
+    }
+    &-subtitle {
+      color: $color;
+    }
+    &-description {
+      color: $color;
+    }
+    &-current {
+      .#{$step-prefix-cls}-tag {
+        &-inner {
+          color: $current-color;
+          background: $current-bg;
+          border: 1px solid $current-color;
+        }
+      }
+
+      .#{$step-prefix-cls}-title {
+        color: $base-color;
+      }
+
+      .#{$step-prefix-cls}-subtitle {
+        color: $secondary-color;
+      }
+      .#{$step-prefix-cls}-description {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+@mixin steps-default-size {
+  @include step-size(
+    $step-margin-m,
+    $step-tag-size-m,
+    $steps-font-size-m,
+    $padding-l,
+    2px
+  );
+}
+
+@mixin steps-small-size {
+  @include step-size(
+    $step-margin-s,
+    $step-tag-size-s,
+    $steps-font-size-s,
+    $padding-s,
+    1px
+  );
+}
+
+$steps-horizontal-padding: 0 calc($step-margin-m);
+$steps-vertical-padding: 0 calc($step-margin-m * 2 - 2px);
+
+@mixin steps-horizontal {
+  @include step-direction(
+    row,
+    1,
+    center,
+    $steps-horizontal-padding,
+    auto,
+    horizontal
+  );
+}
+
+@mixin steps-vertical {
+  @include step-direction(
+    column,
+    auto,
+    none,
+    $steps-vertical-padding,
+    24px,
+    vertical
+  );
+}
+
+@mixin steps-status-default {
+  @include step-status(
+    $step-undo-color,
+    #fff,
+    $step-current-color,
+    $step-base-color,
+    $step-secondary-color
+  );
+}
+
+@mixin steps-status-danger {
+  @include step-status(
+    $step-undo-color,
+    $step-danger-color,
+    transparent,
+    $step-danger-color,
+    $step-danger-color
+  );
+}

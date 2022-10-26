@@ -26,8 +26,7 @@ const BABEL_ENV = process.env.BABEL_ENV
 const babelOptions = {
   presets: ["@babel/preset-env"],
   extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss'],
-  exclude: "**/node_modules/**",
-  babelHelpers: 'bundled'
+  exclude: "**/node_modules/**"
 }
 
 // 通用插件
@@ -119,7 +118,7 @@ export default () => {
             extract: true,
             process: processScss,
 
-          }), ...commonPlugins, dts()],
+          }), ...commonPlugins, dts()]
         }
       ]
   }
